@@ -1,0 +1,7 @@
+# humanstxt.org/
+
+The humans responsible
+
+## Team
+
+- [Paul Shryock](https://github.com/paulshryock) -- Lead Front End Developer
