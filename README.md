@@ -3,9 +3,118 @@
 # Leigh
 > Start local development from scratch without reinventing the wheel
 
-<!-- ## Features -->
-
 <!-- ## Quick Start -->
+
+## Table of Contents
+
+- Operating System
+	- MacOS
+	- Windows
+	- Linux
+- Server
+	- Apache
+	- NginX
+- DNS
+	- hosts file
+	- DNS masking
+- Database
+  - MySQL
+  - MariaDB
+  - SQLite
+  - PostgreSQL
+- Database Management
+  - Sequel Pro
+  - Heidi SQL
+  - OmniDB
+  - phpMyAdmin
+- Programming Language
+	- PHP
+	- Ruby
+- Version Control
+	- Git
+		- GitHub
+- Package Management
+	- Homebrew
+	- npm
+	- Chocolatey
+	- apt-get
+- Cloud Storage
+	- OneDrive
+	- Google Drive
+	- DropBox
+	- Box
+
+## Setup Instructions
+
+### Operating System
+- MacOS
+	- Mojave
+	- High Sierra
+- Windows
+	- 10
+	- 7
+- Linux
+	- CentOS
+	- Ubuntu
+
+### Server
+- [Apache 2.4](https://httpd.apache.org/docs/2.4/)
+	- Virtual Hosts
+	- SSL
+- NginX
+
+### DNS
+
+#### hosts file
+
+If you are testing a server that is not Internet-accessible, you can put host names in your hosts file in order to do local resolution.* For example, you might want to put a record in your hosts file to map a request for `www.example.com` to your local system, for testing purposes. This entry would look like:
+
+```shell
+127.0.0.1 www.example.com
+```
+
+_\* https://httpd.apache.org/docs/2.4/getting-started.html_
+
+##### hosts file location
+
+- MacOS: `/etc/hosts`
+- Windows: `C:\Windows\system32\drivers\etc\hosts`
+- Linux: `/etc/hosts`
+
+#### DNS masking
+
+### Database
+  - MySQL
+  - MariaDB
+  - SQLite
+  - PostgreSQL
+
+#### Database Management
+  - Sequel Pro
+  - Heidi SQL
+  - [OmniDB](https://www.omnidb.org/en/)
+  - [phpMyAdmin](https://www.phpmyadmin.net/)
+
+### Programming Language
+- PHP
+	- 7.3
+- Ruby
+
+### Version Control
+- Git
+	- GitHub
+
+### Package Management
+- Homebrew
+- npm
+- Chocolatey
+- apt-get
+
+### Cloud Storage
+- OneDrive
+- Google Drive
+- DropBox
+- Box
 
 ## Roadmap
 

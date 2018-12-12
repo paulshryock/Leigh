@@ -39,6 +39,9 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 	- 2.4
 - NginX
 
+### DNS
+- DNS masking
+
 ### Database
   - MySQL
   - MariaDB
@@ -76,3 +79,6 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 ### Added
 - Add Roadmap
+- Add Table of Contents
+- Add Setup Instructions
+- Add hosts file content
