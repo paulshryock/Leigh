@@ -32,8 +32,9 @@
 
 ### Server
 - [Apache 2.4](https://httpd.apache.org/docs/2.4/)
-	- Virtual Hosts
-	- SSL
+	- Apache Config File: `/conf/httpd.conf`
+	- Virtual Hosts Config File: `/conf/extra/httpd-vhosts.conf`
+	- SSL Config File: `/conf/extra/httpd-ssl.conf`
 - NginX
 
 ### DNS
@@ -54,7 +55,15 @@ _\* https://httpd.apache.org/docs/2.4/getting-started.html_
 - Windows: `C:\Windows\system32\drivers\etc\hosts`
 - Linux: `/etc/hosts`
 
-#### DNS masking
+#### Local DNS Masking
+
+- [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) (MacOS and Linux)
+	- [Configure dnsmasq](https://askubuntu.com/a/743051)
+- [Acrylic DNS Proxy](https://stackoverflow.com/questions/138162/wildcards-in-a-windows-hosts-file?answertab=votes#tab-top) (Windows)
+	- [Configure Acrylic](https://www.orbitale.io/2017/12/05/setup-a-dnsmasq-equivalent-on-windows-with-acrylic.html)
+- [DNSAgent](https://github.com/stackia/DNSAgent)
+
+#### DNS Flushing
 
 ### Database
   - MySQL
@@ -104,7 +113,7 @@ Working on your first Pull Request? You can learn how from this *free* series, [
 
 ### Team
 
-- [Paul Shryock](https://github.com/paulshryock) -- Lead Front End Developer
+- [Paul Shryock](https://github.com/paulshryock): Lead Front End Developer
 
 <!-- ### Thanks -->
 
