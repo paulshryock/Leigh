@@ -36,11 +36,10 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 ### Server
 - Apache
-	- 2.4
 - NginX
 
 ### DNS
-- DNS masking
+- Local DNS masking
 
 ### Database
   - MySQL
@@ -56,7 +55,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 ### Programming Language
 - PHP
-	- 7.3
+	- Finish
 - Ruby
 
 ### Version Control
