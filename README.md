@@ -8,41 +8,14 @@
 ## Table of Contents
 
 - Operating System
-	- MacOS
-	- Windows
-	- Linux
 - Server
-	- Apache
-	- NginX
 - DNS
-	- hosts file
-	- DNS masking
 - Database
-  - MySQL
-  - MariaDB
-  - SQLite
-  - PostgreSQL
 - Database Management
-  - Sequel Pro
-  - Heidi SQL
-  - OmniDB
-  - phpMyAdmin
 - Programming Language
-	- PHP
-	- Ruby
 - Version Control
-	- Git
-		- GitHub
 - Package Management
-	- Homebrew
-	- npm
-	- Chocolatey
-	- apt-get
 - Cloud Storage
-	- OneDrive
-	- Google Drive
-	- DropBox
-	- Box
 
 ## Setup Instructions
 
