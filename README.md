@@ -31,23 +31,64 @@
 	- Ubuntu
 
 ### Server
-- [Apache 2.4](https://httpd.apache.org/docs/2.4/)
-	- Apache Config File: `/conf/httpd.conf`
-	- Virtual Hosts Config File: `/conf/extra/httpd-vhosts.conf`
-	- SSL Config File: `/conf/extra/httpd-ssl.conf`
+- [Apache](https://httpd.apache.org/docs/)
+	1. Stop and unload pre-installed Apache (MacOS)
+	
+	    ```shell
+	    $ sudo apachectl stop
+	    $ sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
+	    ```
+	    
+	1. Install and start Apache
+		- via Homebrew (MacOS)
+	
+		    ```shell
+		    $ brew install httpd
+		    $ sudo brew services start httpd
+		    ```
+	    
+		- [Download Latest Version](http://httpd.apache.org/download.cgi), then Install Apache ([Windows](https://httpd.apache.org/docs/2.4/platform/windows.html))
+			- Install as a service
+		
+			    ```shell
+			    $ httpd.exe -k install
+			    ```
+		    
+		- [Download Latest Version](http://httpd.apache.org/download.cgi), then Install Apache ([Linux](https://httpd.apache.org/docs/2.4/install.html))
+		- Visit `http://localhost:8080` and see "**It works!**"
+	1. Configure
+		- Edit Apache Config File: `/conf/httpd.conf`
+			- Replace `Listen 8080` with `Listen 80`
+			- Update `DocumentRoot` and `<Directory>` locations (or control these per site at the virtual host level)
+			- Replace `AllowOverride None` with `AllowOverride All` (or control this per site at the virtual host level)
+			- Uncomment `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so`
+			- Replace `User` with local User name
+			- Replace `Group` with local Group name
+				- `Group staff` (MacOS)
+			- Replace `#ServerName www.example.com:8080` with `ServerName localhost`
+			- Visit `http://localhost`
+		- Edit Virtual Hosts Config File: `/conf/extra/httpd-vhosts.conf`
+		- Edit SSL Config File: `/conf/extra/httpd-ssl.conf`
+	1. Control Apache (MacOS, Linux)
+	
+	    ```shell
+	    $ sudo apachectl start
+	    $ sudo apachectl stop
+	    $ sudo apachectl -k restart
+	    ```
 - NginX
 
 ### DNS
 
 #### hosts file
 
-If you are testing a server that is not Internet-accessible, you can put host names in your hosts file in order to do local resolution.* For example, you might want to put a record in your hosts file to map a request for `www.example.com` to your local system, for testing purposes. This entry would look like:
+- Open `hosts` file and add local websites
 
-```shell
-127.0.0.1 www.example.com
-```
-
-_\* https://httpd.apache.org/docs/2.4/getting-started.html_
+    ```shell
+    127.0.0.1 localhost
+    127.0.0.1 example.com
+    127.0.0.1 www.example.com
+    ```
 
 ##### hosts file location
 
@@ -65,6 +106,11 @@ _\* https://httpd.apache.org/docs/2.4/getting-started.html_
 
 #### DNS Flushing
 
+1. Flush DNS
+	- MacOS: `sudo killall -HUP mDNSResponder`
+	- Windows7: `ipconfig /flushdns`
+1. Clear browser cache
+
 ### Database
   - MySQL
   - MariaDB
@@ -78,9 +124,48 @@ _\* https://httpd.apache.org/docs/2.4/getting-started.html_
   - [phpMyAdmin](https://www.phpmyadmin.net/)
 
 ### Programming Language
-- PHP
-	- 7.3
-- Ruby
+
+#### PHP
+- Install PHP
+    - Install XCode Command Line Tools
+    
+	    ```shell
+	    $ xcode-select --install
+    ```
+
+    - Install Homebrew (see below)
+    - Install Mojave Required Libraries (MacOS Mojave)
+    
+        ```shell
+        $ brew install openldap libiconv
+
+        ```
+    - Install Apache (see above)
+    - Install PHP
+    
+	    ```shell
+	    $ brew install php@5.6
+	    $ brew install php@7.0
+	    $ brew install php@7.1
+	    $ brew install php@7.2
+	    ```
+	    
+		- TODO: See if this also works:
+	    
+    
+		    ```shell
+		    $ brew install php@7.3
+		    ```
+	    
+    - Switch to PHP 5.6
+    
+        ```shell
+        $ brew unlink php@7.2 && brew link --force --overwrite php@5.6
+        ```
+        
+- Check PHP version: `php -v`
+    
+#### Ruby
 
 ### Version Control
 - Git
@@ -88,6 +173,26 @@ _\* https://httpd.apache.org/docs/2.4/getting-started.html_
 
 ### Package Management
 - Homebrew
+
+    - Is Homebrew installed?
+    
+	    ```shell
+	    $ brew --version
+	    ```
+    - Install Homebrew
+    
+	    ```shell
+	    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ 	   ```
+    
+    - Fix/correct Homebrew
+    
+	    ```shell
+	    $ brew doctor
+	    ```
+    
+    - [Update Homebrew](https://getgrav.org/blog/macos-mojave-apache-upgrade-homebrew)
+    
 - npm
 - Chocolatey
 - apt-get
