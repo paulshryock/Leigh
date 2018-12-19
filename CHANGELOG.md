@@ -81,3 +81,4 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 - Add Table of Contents
 - Add Setup Instructions
 - Add hosts file content
+- Add Virtual Hosts Config File

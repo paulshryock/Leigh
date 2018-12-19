@@ -68,6 +68,37 @@
 			- Replace `#ServerName www.example.com:8080` with `ServerName localhost`
 			- Visit `http://localhost`
 		- Edit Virtual Hosts Config File: `/conf/extra/httpd-vhosts.conf`
+
+		    ```shell
+		    <VirtualHost *:80>
+			    DocumentRoot "${localhost_location}"
+			    ServerName localhost
+			    <Directory "${localhost_location}">
+			        Require all granted
+			    </Directory>
+		    </VirtualHost>
+		    
+		    <VirtualHost *:80>
+			    DocumentRoot "${localhost_location}/Project_Name"
+			    ServerName project-name.test
+			    <Directory "${localhost_location}/Project_Name">
+			        Require all granted
+			    </Directory>
+			</VirtualHost>  
+	    
+		    <VirtualHost *:443>
+			    Protocols h2 http/1.1
+			    DocumentRoot "${localhost_location}/Project_Name"
+			    ServerName project-name.test
+			    <Directory "${localhost_location}/Project_Name">
+			        Require all granted
+			    </Directory>
+			    SSLEngine on
+			    SSLCertificateFile "${localhost_location}/Project_Name/certs/server.crt"
+			    SSLCertificateKeyFile "${localhost_location}/Project_Name/certs/server.key"
+		    </VirtualHost>
+		    ```
+
 		- Edit SSL Config File: `/conf/extra/httpd-ssl.conf`
 	1. Control Apache (MacOS, Linux)
 	
