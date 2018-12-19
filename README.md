@@ -1,5 +1,3 @@
-![Leigh](https://raw.githubusercontent.com/paulshryock/Leigh/master/favicon.ico)
-
 # Leigh
 > Start local development from scratch without reinventing the wheel
 
@@ -40,7 +38,7 @@
 	    ```
 	    
 	1. Install and start Apache
-		- via Homebrew (MacOS)
+		- via Homebrew ([MacOS](https://getgrav.org/blog/macos-mojave-apache-multiple-php-versions))
 	
 		    ```shell
 		    $ brew install httpd
