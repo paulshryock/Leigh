@@ -99,6 +99,16 @@
 		    </VirtualHost>
 		    ```
 
+		- Generate SSL Certificate files
+
+		    ```shell
+		    # Replace DOMAIN_NAME_HERE with your domain (i.e. example.test)
+		    openssl req -x509 -out server.crt -keyout server.key \
+			  -newkey rsa:2048 -nodes -sha256 \
+			  -subj '/CN=DOMAIN_NAME_HERE' -extensions EXT -config <( \
+			   printf "[dn]\nCN=eustace.test\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:DOMAIN_NAME_HERE\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+		    ```
+
 		- Edit SSL Config File: `/conf/extra/httpd-ssl.conf`
 	1. Control Apache (MacOS, Linux)
 	
