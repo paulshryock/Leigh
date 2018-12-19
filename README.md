@@ -54,7 +54,7 @@
 		    
 		- [Download Latest Version](http://httpd.apache.org/download.cgi), then Install Apache ([Linux](https://httpd.apache.org/docs/2.4/install.html))
 		- Visit `http://localhost:8080` and see "**It works!**"
-	1. Configure
+	1. Configure Apache, add Virtual Hosts and SSL
 		- Edit Apache Config File: `/conf/httpd.conf`
 			- Replace `Listen 8080` with `Listen 80`
 			- Update `DocumentRoot` and `<Directory>` locations (or control these per site at the virtual host level)
@@ -73,6 +73,8 @@
 		- Edit Virtual Hosts Config File: `/conf/extra/httpd-vhosts.conf`
 
 		    ```shell
+		    # Replace Your_Domain_Name with your domain (i.e. example.test)
+		    # Replace Project_Name with your project folder name
 		    <VirtualHost *:80>
 			    DocumentRoot "${localhost_location}"
 			    ServerName localhost
@@ -83,7 +85,7 @@
 		    
 		    <VirtualHost *:80>
 			    DocumentRoot "${localhost_location}/Project_Name"
-			    ServerName project-name.test
+			    ServerName Your_Domain_Name
 			    <Directory "${localhost_location}/Project_Name">
 			        Require all granted
 			    </Directory>
@@ -92,7 +94,7 @@
 		    <VirtualHost *:443>
 			    Protocols h2 http/1.1
 			    DocumentRoot "${localhost_location}/Project_Name"
-			    ServerName project-name.test
+			    ServerName Your_Domain_Name
 			    <Directory "${localhost_location}/Project_Name">
 			        Require all granted
 			    </Directory>
