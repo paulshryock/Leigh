@@ -191,7 +191,7 @@
 
 1. Flush DNS
 	- MacOS: `sudo killall -HUP mDNSResponder`
-	- Windows7: `ipconfig /flushdns`
+	- Windows 7: `ipconfig /flushdns`
 1. Clear browser cache
 
 ### Database
