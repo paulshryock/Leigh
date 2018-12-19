@@ -31,22 +31,95 @@
 	- Ubuntu
 
 ### Server
-- [Apache 2.4](https://httpd.apache.org/docs/2.4/)
-	- Virtual Hosts
-	- SSL
+- [Apache](https://httpd.apache.org/docs/)
+	1. Stop and unload pre-installed Apache (MacOS)
+	
+	    ```shell
+	    $ sudo apachectl stop
+	    $ sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
+	    ```
+	    
+	1. Install and start Apache
+		- via Homebrew (MacOS)
+	
+		    ```shell
+		    $ brew install httpd
+		    $ sudo brew services start httpd
+		    ```
+	    
+		- [Download Latest Version](http://httpd.apache.org/download.cgi), then Install Apache ([Windows](https://httpd.apache.org/docs/2.4/platform/windows.html))
+			- Install as a service
+		
+			    ```shell
+			    $ httpd.exe -k install
+			    ```
+		    
+		- [Download Latest Version](http://httpd.apache.org/download.cgi), then Install Apache ([Linux](https://httpd.apache.org/docs/2.4/install.html))
+		- Visit `http://localhost:8080` and see "**It works!**"
+	1. Configure
+		- Edit Apache Config File: `/conf/httpd.conf`
+			- Replace `Listen 8080` with `Listen 80`
+			- Update `DocumentRoot` and `<Directory>` locations (or control these per site at the virtual host level)
+			- Replace `AllowOverride None` with `AllowOverride All` (or control this per site at the virtual host level)
+			- Uncomment `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so`
+			- Replace `User` with local User name
+			- Replace `Group` with local Group name
+				- `Group staff` (MacOS)
+			- Replace `#ServerName www.example.com:8080` with `ServerName localhost`
+			- Visit `http://localhost`
+		- Edit Virtual Hosts Config File: `/conf/extra/httpd-vhosts.conf`
+
+		    ```shell
+		    <VirtualHost *:80>
+			    DocumentRoot "${localhost_location}"
+			    ServerName localhost
+			    <Directory "${localhost_location}">
+			        Require all granted
+			    </Directory>
+		    </VirtualHost>
+		    
+		    <VirtualHost *:80>
+			    DocumentRoot "${localhost_location}/Project_Name"
+			    ServerName project-name.test
+			    <Directory "${localhost_location}/Project_Name">
+			        Require all granted
+			    </Directory>
+			</VirtualHost>  
+	    
+		    <VirtualHost *:443>
+			    Protocols h2 http/1.1
+			    DocumentRoot "${localhost_location}/Project_Name"
+			    ServerName project-name.test
+			    <Directory "${localhost_location}/Project_Name">
+			        Require all granted
+			    </Directory>
+			    SSLEngine on
+			    SSLCertificateFile "${localhost_location}/Project_Name/certs/server.crt"
+			    SSLCertificateKeyFile "${localhost_location}/Project_Name/certs/server.key"
+		    </VirtualHost>
+		    ```
+
+		- Edit SSL Config File: `/conf/extra/httpd-ssl.conf`
+	1. Control Apache (MacOS, Linux)
+	
+	    ```shell
+	    $ sudo apachectl start
+	    $ sudo apachectl stop
+	    $ sudo apachectl -k restart
+	    ```
 - NginX
 
 ### DNS
 
 #### hosts file
 
-If you are testing a server that is not Internet-accessible, you can put host names in your hosts file in order to do local resolution.* For example, you might want to put a record in your hosts file to map a request for `www.example.com` to your local system, for testing purposes. This entry would look like:
+- Open `hosts` file and add local websites
 
-```shell
-127.0.0.1 www.example.com
-```
-
-_\* https://httpd.apache.org/docs/2.4/getting-started.html_
+    ```shell
+    127.0.0.1 localhost
+    127.0.0.1 example.com
+    127.0.0.1 www.example.com
+    ```
 
 ##### hosts file location
 
@@ -54,7 +127,20 @@ _\* https://httpd.apache.org/docs/2.4/getting-started.html_
 - Windows: `C:\Windows\system32\drivers\etc\hosts`
 - Linux: `/etc/hosts`
 
-#### DNS masking
+#### Local DNS Masking
+
+- [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) (MacOS and Linux)
+	- [Configure dnsmasq](https://askubuntu.com/a/743051)
+- [Acrylic DNS Proxy](https://stackoverflow.com/questions/138162/wildcards-in-a-windows-hosts-file?answertab=votes#tab-top) (Windows)
+	- [Configure Acrylic](https://www.orbitale.io/2017/12/05/setup-a-dnsmasq-equivalent-on-windows-with-acrylic.html)
+- [DNSAgent](https://github.com/stackia/DNSAgent)
+
+#### DNS Flushing
+
+1. Flush DNS
+	- MacOS: `sudo killall -HUP mDNSResponder`
+	- Windows7: `ipconfig /flushdns`
+1. Clear browser cache
 
 ### Database
   - MySQL
@@ -69,9 +155,48 @@ _\* https://httpd.apache.org/docs/2.4/getting-started.html_
   - [phpMyAdmin](https://www.phpmyadmin.net/)
 
 ### Programming Language
-- PHP
-	- 7.3
-- Ruby
+
+#### PHP
+- Install PHP
+    - Install XCode Command Line Tools
+    
+	    ```shell
+	    $ xcode-select --install
+    ```
+
+    - Install Homebrew (see below)
+    - Install Mojave Required Libraries (MacOS Mojave)
+    
+        ```shell
+        $ brew install openldap libiconv
+
+        ```
+    - Install Apache (see above)
+    - Install PHP
+    
+	    ```shell
+	    $ brew install php@5.6
+	    $ brew install php@7.0
+	    $ brew install php@7.1
+	    $ brew install php@7.2
+	    ```
+	    
+		- TODO: See if this also works:
+	    
+    
+		    ```shell
+		    $ brew install php@7.3
+		    ```
+	    
+    - Switch to PHP 5.6
+    
+        ```shell
+        $ brew unlink php@7.2 && brew link --force --overwrite php@5.6
+        ```
+        
+- Check PHP version: `php -v`
+    
+#### Ruby
 
 ### Version Control
 - Git
@@ -79,6 +204,26 @@ _\* https://httpd.apache.org/docs/2.4/getting-started.html_
 
 ### Package Management
 - Homebrew
+
+    - Is Homebrew installed?
+    
+	    ```shell
+	    $ brew --version
+	    ```
+    - Install Homebrew
+    
+	    ```shell
+	    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ 	   ```
+    
+    - Fix/correct Homebrew
+    
+	    ```shell
+	    $ brew doctor
+	    ```
+    
+    - [Update Homebrew](https://getgrav.org/blog/macos-mojave-apache-upgrade-homebrew)
+    
 - npm
 - Chocolatey
 - apt-get
@@ -104,7 +249,7 @@ Working on your first Pull Request? You can learn how from this *free* series, [
 
 ### Team
 
-- [Paul Shryock](https://github.com/paulshryock) -- Lead Front End Developer
+- [Paul Shryock](https://github.com/paulshryock): Lead Front End Developer
 
 <!-- ### Thanks -->
 
