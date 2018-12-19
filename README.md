@@ -62,6 +62,11 @@
 			- Update `DocumentRoot` and `<Directory>` locations (or control these per site at the virtual host level)
 			- Replace `AllowOverride None` with `AllowOverride All` (or control this per site at the virtual host level)
 			- Uncomment `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so`
+			- Uncomment `LoadModule socache_shmcb_module lib/httpd/modules/mod_socache_shmcb.so`
+			- Uncomment `LoadModule ssl_module lib/httpd/modules/mod_ssl.so`
+			- Uncomment `LoadModule vhost_alias_module lib/httpd/modules/mod_vhost_alias.so`
+			- Uncomment `Include /usr/local/etc/httpd/extra/httpd-ssl.conf`
+			- Uncomment `Include /usr/local/etc/httpd/extra/httpd-vhosts.conf`
 			- Replace `User` with local User name
 			- Replace `Group` with local Group name
 				- `Group staff` (MacOS)
@@ -114,6 +119,7 @@
 		    ```
 
 		- Edit SSL Config File: `/conf/extra/httpd-ssl.conf`
+			- Find/replace `8443` with `443`
 	1. Control Apache (MacOS, Linux)
 	
 	    ```shell
@@ -145,6 +151,15 @@
 
 - [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) (MacOS and Linux)
 	- [Configure dnsmasq](https://askubuntu.com/a/743051)
+	
+		```shell
+		brew install dnsmasq
+		echo 'address=/.test/127.0.0.1' > /usr/local/etc/dnsmasq.conf
+		sudo brew services start dnsmasq
+		sudo mkdir -v /etc/resolver
+		sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
+		```
+	
 - [Acrylic DNS Proxy](https://stackoverflow.com/questions/138162/wildcards-in-a-windows-hosts-file?answertab=votes#tab-top) (Windows)
 	- [Configure Acrylic](https://www.orbitale.io/2017/12/05/setup-a-dnsmasq-equivalent-on-windows-with-acrylic.html)
 - [DNSAgent](https://github.com/stackia/DNSAgent)
@@ -159,11 +174,26 @@
 ### Database
   - MySQL
   - MariaDB
+	  - Install MariaDB
+	  
+	  ```shell
+	  brew update
+	  brew install mariadb
+	  brew services start mariadb
+	  ```
+	  
+	  To stop the server:
+	  
+	  ```shell
+	  brew services stop mariadb
+	  ```
+	  
   - SQLite
   - PostgreSQL
 
 #### Database Management
   - Sequel Pro
+	  - [Download SequelPro](http://www.sequelpro.com/)
   - Heidi SQL
   - [OmniDB](https://www.omnidb.org/en/)
   - [phpMyAdmin](https://www.phpmyadmin.net/)
