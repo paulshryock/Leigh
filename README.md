@@ -56,20 +56,42 @@
 		- Visit `http://localhost:8080` and see "**It works!**"
 	1. Configure Apache, add Virtual Hosts and SSL
 		- Edit Apache Config File: `/conf/httpd.conf`
+			- Add `Define localhost_location "path/to/folder"`
 			- Replace `Listen 8080` with `Listen 80`
-			- Update `DocumentRoot` and `<Directory>` locations (or control these per site at the virtual host level)
-			- Replace `AllowOverride None` with `AllowOverride All` (or control this per site at the virtual host level)
-			- Uncomment `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so`
 			- Uncomment `LoadModule socache_shmcb_module lib/httpd/modules/mod_socache_shmcb.so`
+			- Uncomment `LoadModule brotli_module lib/httpd/modules/mod_brotli.so`
 			- Uncomment `LoadModule ssl_module lib/httpd/modules/mod_ssl.so`
+			- Uncomment `LoadModule http2_module lib/httpd/modules/mod_http2.so`
 			- Uncomment `LoadModule vhost_alias_module lib/httpd/modules/mod_vhost_alias.so`
-			- Uncomment `Include /usr/local/etc/httpd/extra/httpd-ssl.conf`
-			- Uncomment `Include /usr/local/etc/httpd/extra/httpd-vhosts.conf`
+			- Uncomment `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so`
 			- Replace `User` with local User name
 			- Replace `Group` with local Group name
 				- `Group staff` (MacOS)
 			- Replace `#ServerName www.example.com:8080` with `ServerName localhost`
-			- Visit `http://localhost`
+			- Update `DocumentRoot` and `<Directory>` locations with `"${localhost_location}"`
+			- Replace `AllowOverride None` with `AllowOverride All`
+			- Find and replace:
+
+				```shell
+				<IfModule dir_module>
+					DirectoryIndex index.html
+				</IfModule>
+				```
+
+				with:
+
+				```shell
+				<IfModule dir_module>
+					DirectoryIndex index.php index.html
+				</IfModule>
+
+				<FilesMatch \.php$>
+					SetHandler application/x-httpd-php
+				</FilesMatch>
+				```
+
+			- Uncomment `Include /usr/local/etc/httpd/extra/httpd-vhosts.conf`
+			- Uncomment `Include /usr/local/etc/httpd/extra/httpd-ssl.conf`
 		- Edit Virtual Hosts Config File: `/conf/extra/httpd-vhosts.conf`
 
 		    ```shell
@@ -127,6 +149,7 @@
 	    sudo apachectl stop
 	    sudo apachectl -k restart
 	    ```
+	1. Visit `http://localhost`
 - NginX
 
 ### DNS
