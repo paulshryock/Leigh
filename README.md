@@ -102,20 +102,24 @@
 		- Generate SSL Certificate files
 
 		    ```shell
-		    # Replace DOMAIN_NAME_HERE with your domain (i.e. example.test)
+		    # Replace Your_Domain_Name with your domain (i.e. example.test)
+		    # Replace Project_Name with your project folder name
+		    cd Project_Name
+		    mkdir certs
+		    cd certs
 		    openssl req -x509 -out server.crt -keyout server.key \
 			  -newkey rsa:2048 -nodes -sha256 \
-			  -subj '/CN=DOMAIN_NAME_HERE' -extensions EXT -config <( \
-			   printf "[dn]\nCN=eustace.test\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:DOMAIN_NAME_HERE\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+			  -subj '/CN=Your_Domain_Name' -extensions EXT -config <( \
+			   printf "[dn]\nCN=eustace.test\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:Your_Domain_Name\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 		    ```
 
 		- Edit SSL Config File: `/conf/extra/httpd-ssl.conf`
 	1. Control Apache (MacOS, Linux)
 	
 	    ```shell
-	    $ sudo apachectl start
-	    $ sudo apachectl stop
-	    $ sudo apachectl -k restart
+	    sudo apachectl start
+	    sudo apachectl stop
+	    sudo apachectl -k restart
 	    ```
 - NginX
 
@@ -171,8 +175,8 @@
     - Install XCode Command Line Tools
     
 	    ```shell
-	    $ xcode-select --install
-    ```
+	    xcode-select --install
+	    ```
 
     - Install Homebrew (see below)
     - Install Mojave Required Libraries (MacOS Mojave)
