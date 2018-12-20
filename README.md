@@ -137,7 +137,7 @@
 		    openssl req -x509 -out server.crt -keyout server.key \
 			  -newkey rsa:2048 -nodes -sha256 \
 			  -subj '/CN=Your_Domain_Name' -extensions EXT -config <( \
-			   printf "[dn]\nCN=eustace.test\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:Your_Domain_Name\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+			   printf "[dn]\nCN=Your_Domain_Name\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:Your_Domain_Name\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 		    ```
 
 		- Edit SSL Config File: `/conf/extra/httpd-ssl.conf`
