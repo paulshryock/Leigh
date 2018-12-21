@@ -14,10 +14,14 @@
 - Version Control
 - Package Management
 - Cloud Storage
+- Symbolic Links
 
 ## Setup Instructions
 
 ### Operating System
+
+TODO: Add Operating System content
+
 - MacOS
 	- Mojave
 	- High Sierra
@@ -151,6 +155,8 @@
 	    ```
 	1. Visit `http://localhost`
 - NginX
+
+TODO: Add NginX content
 
 ### DNS
 
@@ -300,6 +306,36 @@
 - Google Drive
 - DropBox
 - Box
+
+### Symbolic Links
+
+#### MacOS, Linux
+
+> Otherwise known as **symlinks**, they are like pointers to another place. While you don't have to _actually move_ the folder you are referencing, you can create a pointer to it that behaves as if you did.
+> &mdash;[Chris Coyier](https://css-tricks.com/symbolic-links-for-easier-multi-folder-local-development/)
+
+```shell
+ln -s /path/to/original/ /path/to/link
+```
+
+#### Windows
+
+> You can create symbolic links using the mklink command in a Command Prompt window as Administrator. To open one, locate the “Command Prompt” shortcut in your Start menu, right-click it, and select “Run as Administrator”.
+> &mdash;[How-To Geek](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
+
+```shell
+# Without any extra options, mklink creates a symbolic link to a file. The below command creates a symbolic, or “soft”, link at Link pointing to the file Target :
+mklink Link Target
+
+# Use /D when you want to create a soft link pointing to a directory. like so:
+mklink /D Link Target
+
+# Use /H when you want to create a hard link pointing to a file:
+mklink /H Link Target
+
+# Use /J to create a hard link pointing to a directory, also known as a directory junction:
+mklink /J Link Target
+```
 
 ## Roadmap
 
