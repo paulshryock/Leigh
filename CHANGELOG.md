@@ -24,6 +24,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 ## 0.1.0 - 2018-12-12 - Initial Commit
 
 ### Added
+- Add Table of Contents
 - Add Apache content
 - Add DNS content
 - Add MariaDB content
