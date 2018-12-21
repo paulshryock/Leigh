@@ -203,9 +203,11 @@ TODO: Add Operating System content
 #### DNS Flushing
 
 1. Flush DNS
-	- MacOS: `sudo killall -HUP mDNSResponder`
+	- MacOS: `sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`
 	- Windows 7: `ipconfig /flushdns`
-1. Clear browser cache
+1. Clear browser cache:
+	- MacOS
+		- Chrome: `cmd + shift + delete`
 
 ### Database
   - MySQL
