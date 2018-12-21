@@ -9,16 +9,18 @@ Follow the Table of Contents and use what you need.
 
 ## Table of Contents
 
-- Operating System
-- Server
-- DNS
-- Database
-- Database Management
-- Programming Language
-- Version Control
-- Package Management
-- Cloud Storage
-- Symbolic Links
+- [Operating System](#operating-system)
+- [Server](#server)
+- [DNS](#dns)
+- [Database](#database)
+- [Database Management](#database-management)
+- [Programming Language](#programming-language)
+- [Content Management System](#content-management-system)
+- [Static Site Generator](#static-site-generator)
+- [Version Control](#version-control)
+- [Package Management](#package-management)
+- [Cloud Storage](#cloud-storage)
+- [Symbolic Links](#symbolic-links)
 
 ## Setup Instructions
 
@@ -274,8 +276,36 @@ TODO: Add NginX content
 - Check PHP version: `php -v`
     
 #### Ruby
+	    
+TODO: Add Ruby content
+    
+#### Node.js
+	    
+TODO: Add Node.js content
+    
+#### Go
+	    
+TODO: Add Go content
+
+### Content Management System
+	    
+TODO: Add Content Management System content
+
+- WordPress
+- Cockpit
+- Netlify CMS
+
+### Static Site Generator
+	    
+TODO: Add Static Site Generator content
+
+- Eleventy
+- Jekyll
 
 ### Version Control
+	    
+TODO: Add Version Control content
+
 - Git
 	- GitHub
 
@@ -302,10 +332,16 @@ TODO: Add NginX content
     - [Update Homebrew](https://getgrav.org/blog/macos-mojave-apache-upgrade-homebrew)
     
 - npm
+	- TODO: Add npm content
 - Chocolatey
+	- TODO: Add Chocolatey content
 - apt-get
+	- TODO: Add apt-get content
 
 ### Cloud Storage
+
+TODO: Add Cloud Storage content
+
 - OneDrive
 - Google Drive
 - DropBox
