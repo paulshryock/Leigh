@@ -21,64 +21,12 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 ### Security
 -->
 
-## Roadmap
-
-### Operating System
-- MacOS
-	- Mojave
-	- High Sierra
-- Windows
-	- 10
-	- 7
-- Linux
-	- CentOS
-	- Ubuntu
-
-### Server
-- Apache
-- NginX
-
-### DNS
-- Local DNS masking
-
-### Database
-  - MySQL
-  - MariaDB
-  - SQLite
-  - PostgreSQL
-
-#### Database Management
-  - Sequel Pro
-  - Heidi SQL
-  - [OmniDB](https://www.omnidb.org/en/)
-  - [phpMyAdmin](https://www.phpmyadmin.net/)
-
-### Programming Language
-- PHP
-	- Finish
-- Ruby
-
-### Version Control
-- Git
-	- GitHub
-
-### Package Management
-- Homebrew
-- npm
-- Chocolatey
-- apt-get
-
-### Cloud Storage
-- OneDrive
-- Google Drive
-- DropBox
-- Box
-
 ## 0.1.0 - 2018-12-12 - Initial Commit
 
 ### Added
-- Add Roadmap
-- Add Table of Contents
-- Add Setup Instructions
-- Add hosts file content
-- Add Virtual Hosts Config File
+- Add Apache content
+- Add DNS content
+- Add MariaDB content
+- Add PHP content
+- Add Homebrew content
+- Add Symbolic Links content

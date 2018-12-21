@@ -2,6 +2,8 @@
 
 The humans responsible
 
-## Team
+## Contributors
 
-- [Paul Shryock](https://github.com/paulshryock) -- Lead Front End Developer
+|Name|Role|
+|---|---|
+|[Paul Shryock](https://github.com/paulshryock)|Owner|

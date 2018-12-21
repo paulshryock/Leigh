@@ -1,7 +1,11 @@
 # Leigh
 > Start local development from scratch without reinventing the wheel
 
-<!-- ## Quick Start -->
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/paulshryock/Leigh/graphs/commit-activity)
+
+## Quick Start
+
+Follow the Table of Contents and use what you need.
 
 ## Table of Contents
 
@@ -14,10 +18,14 @@
 - Version Control
 - Package Management
 - Cloud Storage
+- Symbolic Links
 
 ## Setup Instructions
 
 ### Operating System
+
+TODO: Add Operating System content
+
 - MacOS
 	- Mojave
 	- High Sierra
@@ -151,6 +159,8 @@
 	    ```
 	1. Visit `http://localhost`
 - NginX
+
+TODO: Add NginX content
 
 ### DNS
 
@@ -301,9 +311,39 @@
 - DropBox
 - Box
 
+### Symbolic Links
+
+#### MacOS, Linux
+
+> Otherwise known as **symlinks**, they are like pointers to another place. While you don't have to _actually move_ the folder you are referencing, you can create a pointer to it that behaves as if you did.
+> &mdash;[Chris Coyier](https://css-tricks.com/symbolic-links-for-easier-multi-folder-local-development/)
+
+```shell
+ln -s /path/to/original/ /path/to/link
+```
+
+#### Windows
+
+> You can create symbolic links using the mklink command in a Command Prompt window as Administrator. To open one, locate the “Command Prompt” shortcut in your Start menu, right-click it, and select “Run as Administrator”.
+> &mdash;[How-To Geek](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/)
+
+```shell
+# Without any extra options, mklink creates a symbolic link to a file. The below command creates a symbolic, or “soft”, link at Link pointing to the file Target :
+mklink Link Target
+
+# Use /D when you want to create a soft link pointing to a directory. like so:
+mklink /D Link Target
+
+# Use /H when you want to create a hard link pointing to a file:
+mklink /H Link Target
+
+# Use /J to create a hard link pointing to a directory, also known as a directory junction:
+mklink /J Link Target
+```
+
 ## Roadmap
 
-View upcoming changes in the [Roadmap](https://github.com/paulshryock/Leigh/blob/master/CHANGELOG.md).
+Upcoming changes are indicated by `TODO`.
 
 ## Contributing
 
@@ -314,11 +354,11 @@ branch. Pull requests are welcome.
 
 Working on your first Pull Request? You can learn how from this *free* series, [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
 
-### Team
+### Contributors
 
-- [Paul Shryock](https://github.com/paulshryock): Lead Front End Developer
-
-<!-- ### Thanks -->
+|Name|Role|
+|---|---|
+|[Paul Shryock](https://github.com/paulshryock)|Owner|
 
 ## Links
 
@@ -332,9 +372,10 @@ Working on your first Pull Request? You can learn how from this *free* series, [
     to improve the security and privacy of this project!
 - Changelog: [https://github.com/paulshryock/Leigh/blob/master/CHANGELOG.md](https://github.com/paulshryock/Leigh/blob/master/CHANGELOG.md)
 - Related projects:
-  - **Eustace**: [https://github.com/paulshryock/Eustace](https://github.com/paulshryock/Eustace): _Start from scratch without reinventing the wheel_
-  - **Myrtle**: [https://github.com/paulshryock/Myrtle](https://github.com/paulshryock/Myrtle): _Start Cockpit from scratch without reinventing the wheel_
-  - **Brimbly**: [https://github.com/paulshryock/Brimbly](https://github.com/paulshryock/Brimbly): _Start WordPress from scratch without reinventing the wheel_
+  - **Project Roadmap**: [https://github.com/paulshryock/Project-Roadmap](https://github.com/paulshryock/Project-Roadmap) - Plan and execute digital projects from scratch without reinventing the wheel
+  - **Eustace**: [https://github.com/paulshryock/Eustace](https://github.com/paulshryock/Eustace) - Start from scratch without reinventing the wheel
+  - **Myrtle**: [https://github.com/paulshryock/Myrtle](https://github.com/paulshryock/Myrtle) - Start Cockpit from scratch without reinventing the wheel
+  - **Brimbly**: [https://github.com/paulshryock/Brimbly](https://github.com/paulshryock/Brimbly) - Start WordPress from scratch without reinventing the wheel
 
 ## Licensing
 
