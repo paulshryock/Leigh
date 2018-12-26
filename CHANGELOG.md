@@ -21,10 +21,11 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 ### Security
 -->
 
-## 0.1.0 - 2018-12-12 - Initial Commit
+## 0.1.0 - XXXX-XX-XX - Initial Release
 
 ### Added
 - Add Table of Contents
+- Add MacOS Applications content
 - Add Apache content
 - Add DNS content
 - Add MariaDB content

@@ -29,8 +29,37 @@ Follow the Table of Contents and use what you need.
 TODO: Add Operating System content
 
 - MacOS
-	- Mojave
-	- High Sierra
+	- Applications
+		- Browser
+			- Google Chrome
+			- Safari
+			- FireFox
+		- Chat: Slack
+		- Cloud Storage
+			- Backup and Sync from Google
+			- OneDrive
+		- Code Editor
+			- MacDown
+			- Sublime Text
+		- Database Management: Sequel Pro
+		- Development
+			- Koala
+			- LiveReload
+			- PhoneGap
+		- Font Management: Font Book
+		- FTP: FileZilla
+		- Giphy Capture
+		- Git: GitHub Desktop
+		- Image Optimization: ImageOptim
+		- Search: Alfred
+		- Shell
+			- iTerm
+			- Oh My ZSH
+			- Z
+		- List Creation: Wunderlist
+		- Video Conferencing: Zoom
+		- Virtual Machines: Virtual Box
+		- Window Management: Spectacle
 - Windows
 	- 10
 	- 7
