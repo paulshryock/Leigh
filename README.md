@@ -29,6 +29,7 @@ Follow the Table of Contents and use what you need.
 TODO: Add Operating System content
 
 - MacOS
+- Setup: [https://dev.to/therealdanvega/new-macbook-setup-for-developers-2nma]
 	- Applications
 		- Browser
 			- Google Chrome
