@@ -1,4 +1,4 @@
-# Leigh
+# Local Development Setup
 > Start local development from scratch without reinventing the wheel
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/paulshryock/Leigh/graphs/commit-activity)
